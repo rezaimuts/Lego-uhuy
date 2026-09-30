@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRIK/KOTA — Toko LEGO</title>
+<meta name="description" content="Toko LEGO: set baru, set langka, dan bata satuan. Dicek lengkap, dikirim ke seluruh Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f0e8;--ink:#0d0d0d;--red:#ff2e12;--blue:#0a3cff;--yellow:#f5ff3b;--line:rgba(13,13,13,.22);
+--disp:'Anton','Impact','Arial Narrow',sans-serif;--body:'Archivo','Helvetica Neue',Arial,sans-serif;--mono:'Space Mono',ui-monospace,Menlo,monospace;--pad:clamp(16px,3.2vw,44px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:12px;line-height:1.6}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px var(--pad);background:rgba(244,240,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-size:24px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.top nav{display:flex;gap:32px}
+.top nav a{font-family:var(--mono);font-size:12px;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}
+.top nav a:hover{background-size:100% 1px}
+.btn{color:inherit;display:inline-flex;align-items:center;gap:10px;font:700 14px var(--body);text-decoration:none;border:0;background:none;cursor:pointer;padding:0}
+.btn span{display:inline-block;transition:transform .3s}
+.btn:hover span{transform:translate(3px,-3px)}
+.btn.solid{background:var(--ink);color:var(--bg);padding:14px 22px;transition:background .3s,color .3s}
+.btn.solid:hover{background:var(--red)}
+
+/* hero */
+.hero{position:relative;display:grid;grid-template-columns:1.15fr 1fr;gap:0 var(--pad);padding:clamp(28px,5vw,64px) var(--pad) 0;min-height:calc(100vh - 62px);border-bottom:1px solid var(--line)}
+h1{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(76px,14.5vw,210px);line-height:.86;letter-spacing:-.005em}
+h1 .ln{display:block;overflow:hidden;padding-top:.04em}
+h1 .ln i{display:block;font-style:normal;transform:translateY(105%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.13s + .1s)}
+h1 .red{color:var(--red)}
+@keyframes up{to{transform:none}}
+.hero-l{display:flex;flex-direction:column;justify-content:space-between;padding-bottom:36px;z-index:2}
+.hero-l p.lead{max-width:34ch;margin-top:32px;font-weight:500}
+.hero-l .meta{margin-top:26px}
+.hero-r{position:relative;min-height:440px}
+.panel{position:absolute;inset:0 22% 90px 0;background:var(--blue);overflow:hidden;opacity:0;animation:fade 1s .5s forwards}
+.side{position:absolute;top:60px;right:calc(var(--pad)*-1);width:19%;bottom:150px;background:var(--yellow);opacity:0;animation:fade 1s .8s forwards}
+.side::after{content:"";position:absolute;left:28%;top:22%;width:44%;aspect-ratio:1;border-radius:50%;background:var(--bg)}
+@keyframes fade{to{opacity:1}}
+.panel .tag{position:absolute;top:14px;left:14px;color:#fff}
+.stack{position:absolute;inset:0}
+.stack svg{position:absolute;width:56%;height:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.28));animation:float 6s ease-in-out infinite}
+.stack svg:nth-child(1){left:8%;bottom:8%;transform:rotate(-6deg)}
+.stack svg:nth-child(2){right:6%;top:22%;width:50%;transform:rotate(7deg);animation-delay:-2s}
+.stack svg:nth-child(3){left:22%;top:8%;width:44%;transform:rotate(-2deg);animation-delay:-4s}
+@keyframes float{50%{translate:0 -10px}}
+.sticker{position:absolute;right:0;bottom:24px;width:clamp(120px,16vw,190px);background:var(--yellow);border:3px solid var(--ink);padding:14px;transform:rotate(-4deg);font-family:var(--disp);font-size:clamp(20px,2.4vw,30px);line-height:1;text-transform:uppercase;z-index:3}
+.sticker small{display:block;font:400 11px var(--mono);margin-top:8px;text-transform:none}
+
+/* statement */
+.sec{padding:clamp(48px,7vw,96px) var(--pad);border-bottom:1px solid var(--line)}
+.state{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:end}
+h2{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(38px,6vw,84px);line-height:.95}
+.state p{max-width:36ch}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:48px}
+.feat div{border-top:2px solid var(--ink);padding-top:12px;font-weight:700}
+.feat span{display:block;font-weight:400;font-size:14px;margin-top:2px}
+
+/* products */
+.shop{padding:clamp(48px,7vw,96px) 0 0;border-bottom:1px solid var(--line)}
+.shop-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;padding:0 var(--pad) 32px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:12px var(--mono);border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:8px 14px;cursor:pointer;transition:background .25s,color .25s}
+.chip:hover,.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.card{position:relative;display:flex;flex-direction:column;min-height:480px;padding:24px 22px;background:var(--bg);border-top:1px solid var(--line)}
+.card:nth-child(4n+2){background:var(--blue);color:#fff}
+.card:nth-child(4n+4){background:var(--yellow)}
+.card:nth-child(4n+3){background:#ece6d9}
+.card h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.2vw,46px);line-height:.95;margin:8px 0}
+.card .cat{font:11px var(--mono)}
+.art{flex:1;display:grid;place-items:center;padding:18px 0;min-height:190px}
+.art svg,.art img{width:78%;max-height:200px;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.card:hover .art svg,.card:hover .art img{transform:rotate(-5deg) scale(1.06)}
+.card .desc{font-size:14px;min-height:42px;margin-bottom:14px}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1.5px solid currentColor;padding-top:14px}
+.price{font:700 20px var(--body)}
+.card .btn{font-size:13px;border:1.5px solid currentColor;padding:9px 14px;transition:background .25s,color .25s}
+.card:nth-child(4n+2) .btn:hover{background:#fff;color:var(--blue)}
+.card .btn:hover{background:var(--ink);color:var(--bg)}
+.card .btn.off{opacity:.45;pointer-events:none}
+.stok{font:11px var(--mono)}
+.state-msg{grid-column:1/-1;padding:60px var(--pad);font-family:var(--mono);border-top:1px solid var(--line)}
+
+/* ticker */
+.tick{background:var(--ink);color:#fff;overflow:hidden;padding:18px 0;border-bottom:1px solid var(--line)}
+.tick div{display:flex;width:max-content;animation:mq 26s linear infinite}
+.tick span{font:italic 400 clamp(38px,6vw,76px)/1 var(--disp);text-transform:uppercase;padding-right:.8em;transform:skewX(-8deg);color:#bdbdbd}
+.tick span.y{color:var(--yellow)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* cta */
+.cta{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:end}
+.cta h2 .red{color:var(--red)}
+.cta .btn{margin-top:28px}
+.contact{border-left:1px solid var(--line);padding-left:28px}
+.foot{padding:18px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* order dialog */
+dialog{margin:auto;width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;border:3px solid var(--ink);background:var(--bg);color:var(--ink);padding:0}
+dialog[open]{animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+dialog::backdrop{background:rgba(13,13,13,.6);backdrop-filter:blur(3px)}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.dlg-h{background:var(--blue);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.dlg-h h3,.done h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:34px;line-height:1}
+.x{background:none;border:0;color:inherit;font-size:30px;line-height:1;cursor:pointer}
+.dlg-b{padding:22px;display:grid;gap:14px}
+.done{padding:34px 22px}
+.done h3{color:var(--red);font-size:48px;margin:6px 0 12px}
+.done .btn{margin-top:22px}
+label{display:grid;gap:6px;font:12px var(--mono)}
+input,textarea{font:16px var(--body);padding:12px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);border-radius:0;width:100%;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sum{display:flex;justify-content:space-between;border-top:1.5px solid var(--ink);padding-top:12px;font-weight:700}
+.msg{font:12px var(--mono);min-height:18px}
+.msg.err{color:var(--red)}
+.btn:disabled{opacity:.5;cursor:wait}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(46px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){
+ .top nav{display:none}
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-r{min-height:380px;margin-top:8px}
+ .panel{inset:0 14% 60px 0}
+ .side{bottom:110px;width:16%}
+ .state,.cta{grid-template-columns:1fr}
+ .contact{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
+}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.card{min-height:430px}.top .btn.solid{padding:11px 14px}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ h1 .ln i,.panel,.side{transform:none;opacity:1}
+ .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#top" data-s="toko">BRIK/KOTA</a>
+  <nav aria-label="Navigasi utama">
+    <a href="#koleksi">Koleksi</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+  <a class="btn" href="#koleksi">Pesan Sekarang <span>↗</span></a>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Beranda">
+  <div class="hero-l">
+    <div>
+      <h1 aria-label="Bangun semua yang kamu bayangkan">
+        <span class="ln"><i style="--i:0">Bangun</i></span>
+        <span class="ln"><i style="--i:1">Semua</i></span>
+        <span class="ln"><i style="--i:2" class="red">Impian.</i></span>
+      </h1>
+      <p class="lead rv">Toko LEGO untuk kolektor dan pembangun harian: set baru, set langka, dan bata satuan. Dicek lengkap sebelum dikirim.</p>
+    </div>
+    <div class="rv" style="--d:.15s">
+      <p class="mono meta">Stok terbaru / 2026<br>Set · Minifigure · Bata satuan</p>
+      <a class="btn" href="#koleksi">Lihat Koleksi <span>↘</span></a>
+    </div>
+  </div>
+  <div class="hero-r" aria-hidden="true">
+    <div class="panel"><span class="mono tag" data-s="tagline">Tersedia hari ini</span><div class="stack" id="heroBricks"></div></div>
+    <div class="side"></div>
+    <div class="sticker">Segel pabrik<small>Original 100%</small></div>
+  </div>
+</section>
+
+<section class="sec" id="tentang">
+  <div class="state">
+    <h2 class="rv">Kami jual LEGO / untuk yang tak berhenti membangun.</h2>
+    <p class="rv" style="--d:.15s">Dari set pemula sampai edisi koleksi. Setiap pesanan kami periksa jumlah kepingannya, lalu dikemas berlapis supaya sampai utuh.</p>
+  </div>
+  <div class="feat">
+    <div class="rv">Original<span>Segel pabrik, bukan tiruan</span></div>
+    <div class="rv" style="--d:.1s">Dicek lengkap<span>Kepingan dihitung ulang</span></div>
+    <div class="rv" style="--d:.2s">Dikemas aman<span>Bubble wrap dan dus ganda</span></div>
+    <div class="rv" style="--d:.3s">Kirim se-Indonesia<span>Semua ekspedisi utama</span></div>
+  </div>
+</section>
+
+<section class="shop" id="koleksi">
+  <div class="shop-h">
+    <h2 class="rv">Koleksi</h2>
+    <div class="chips rv" id="chips" role="group" aria-label="Filter kategori"></div>
+  </div>
+  <div class="grid" id="grid"><p class="state-msg">Memuat koleksi…</p></div>
+</section>
+
+<div class="tick" aria-hidden="true"><div>
+  <span>Bongkar</span><span class="y">Pasang</span><span>Ulangi</span><span class="y">Bongkar</span><span>Pasang</span><span class="y">Ulangi</span>
+  <span>Bongkar</span><span class="y">Pasang</span><span>Ulangi</span><span class="y">Bongkar</span><span>Pasang</span><span class="y">Ulangi</span>
+</div></div>
+
+<section class="sec cta" id="kontak">
+  <div>
+    <h2 class="rv">Pilih setnya. <span class="red">Pesanan langsung tercatat.</span></h2>
+    <a class="btn solid rv" href="#koleksi" style="--d:.15s">Lihat Koleksi <span>↘</span></a>
+  </div>
+  <div class="contact mono rv" style="--d:.2s">
+    <span data-s="email">halo@brikkota.id</span><br>
+    <span data-s="kota">Kudus, Jawa Tengah</span><br>
+    <span data-s="instagram">@brikkota</span>
+  </div>
+</section>
+</main>
+
+<footer class="foot mono"><span>© 2026 <span data-s="toko">BRIK/KOTA</span></span><span>LEGO® adalah merek dagang LEGO Group. Toko ini tidak berafiliasi.</span></footer>
+
+<dialog id="order" aria-labelledby="oTitle">
+  <div id="oForm">
+    <div class="dlg-h"><div><span class="mono">Pesan produk</span><h3 id="oTitle">Produk</h3></div><button class="x" type="button" id="oClose" aria-label="Tutup">×</button></div>
+    <form class="dlg-b" id="f" novalidate>
+      <label>Nama lengkap<input name="nama" required autocomplete="name" maxlength="80"></label>
+      <div class="two">
+        <label>No. HP<input name="hp" type="tel" required inputmode="tel" autocomplete="tel" maxlength="20"></label>
+        <label>Jumlah<input name="jumlah" type="number" min="1" value="1" required></label>
+      </div>
+      <label>Alamat pengiriman<textarea name="alamat" rows="3" required autocomplete="street-address" maxlength="300"></textarea></label>
+      <label>Catatan (opsional)<input name="catatan" maxlength="200"></label>
+      <div class="sum"><span>Total</span><span id="oTotal">Rp 0</span></div>
+      <p class="msg" id="oMsg" role="status"></p>
+      <button class="btn solid" type="submit" id="oSubmit">Kirim Pesanan <span>↗</span></button>
+    </form>
+  </div>
+  <div class="done" id="oDone" hidden>
+    <p class="mono">Pesanan diterima</p>
+    <h3>Terima kasih!</h3>
+    <p id="oDoneTxt"></p>
+    <button class="btn solid" type="button" id="oOk">Selesai</button>
+  </div>
+</dialog>
+
+<script>document.documentElement.classList.add('js')</script>
+<script src="app.js"></script>
+</body>
+</html>
